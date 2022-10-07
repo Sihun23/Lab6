@@ -17,63 +17,44 @@ There are various ways to manage the version and collaboration system.
 2. Staged
 3. Comitted
 
+**Storage in 3 levels**
+1. System level : --system option. Affects all uses and repositories on the system.
+2. Global level : --global option. Affects all repositories of a current user.
+3. Local level : --local opption. Specific to the current repository.
+- Each level overrides values in the previous level : system -> global ->
 
-*>>** : '>>' appends ouput to an existing file or create and write to a new file.
+
+**$ git init**
 ```sh
-$ ls 0lh > file_list.txt
-$ cat file_list.txt
-$ ls -lh >> file_list.txt
+$ git init // initialized empty Git repository
+```
+  
+**$ git status**
+```sh
+$ git status // checking repositoty status
+```
+  
+**$ git add[file_name]**
+```sh
+$ git add README.md // adding a new file to be staged
 ```
 
-**<** : You can redirect input from a file using "<"
-\[tip] : You can also mix "<" and ">" together in a single line.
+**$ git rm-cached[file_name]**
 ```sh
-$ sort < words.txt > sorted_words.txt 
+$ git rm--cached history_command.txt // unstaging a file
 ```
-
-**|** : Pipeline("|") feeds output of previous command to input of next command.
+  
+**$ git commit -m "commit message"**
 ```sh
-$ ls -lh | less
+$ git commit -m "initial commit" 
 ```
-
-### Expansion
-Special characters expand its meaning when given to shell commands.
+  
+**$ git branch**
 ```sh
-$ echo print out the text
-$ echo * // *output the current directory's files* 
-$ echo ~ // *output the current user's home directory
+$ git branch
+* master
+$ git branch -m master main
+$ git branch
+* main
+$ git status
 ```
-\[tip]
-**Backslash(\)** : It can be usde to ignore line change in commnand "enter" to enter a long command in multiple lines.
-
-### Permission
-**Files and directories have a permision assigned differently to** ***owner***/***group***/***other***
-- r : Read
-- w : Write
-- x : Execute
-**chmod** : changes permission
--> Each permission of three objects(owner,group,others) is shown by binary number
--> ex) 6 = 110 = rw- 
-```sh
-$ chmod 600 some_file
-```
-
-\[tip] 
-**history** : See previous command history.
-```sh
-$ history>history_command.txt
-$ cat history
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
